@@ -9,6 +9,11 @@ import Logo from '../../assets/logo.svg'
 import SelectedOptions from '../SelectedOptions/SelectedOptions'
 import firebase from '../../utils/firestore'
 
+// The main component that bundles all of sub components together to create the complete survey
+// Utilises two custom hooks (see hook files for further info)
+// Array of react components to store the questions means I can easily render the specific quesiton based on the
+// page of the survey I am current viewing. This is done using the array[index] notation.
+
 const PaginatedSurvey: React.FC = (): ReactElement => {
   const { currentStep, decrementStep, incrementStep } = usePagination()
   const { answers, onSelectOption } = useSurvey()
@@ -38,6 +43,9 @@ const PaginatedSurvey: React.FC = (): ReactElement => {
       onSelect={options => onSelectOption('any_specific_diet', options)}
     />,
   ]
+
+  // somewhat unecessary but I feel that it makes the code more readable if you are focusing on the main render function and
+  // see `questions[current-step-1]` it is not so obvious what it does. Therefore we name it to clarify what is being done here
 
   const renderCurrentQuestion = () => questions[currentStep - 1]
 

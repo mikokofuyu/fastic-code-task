@@ -9,6 +9,9 @@ interface Props {
   }
 }
 
+// Not included in the original designs but felt like there should be somewhere for users to confirm that they selected the right stuff before submitting
+// Simpley just displays the data against the question
+
 const SelectedOptions: React.FC<Props> = ({ selectedOptions }): ReactElement => {
   return (
     <div className="flex flex-col w-full">

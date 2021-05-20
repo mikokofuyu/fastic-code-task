@@ -7,6 +7,10 @@ interface Props {
   onSelect: (options: string[]) => void
 }
 
+// Logic for selecting / deselecting values is caputred within this component as it is quite specific to the component
+// useEffect hook is use rather than passing the state to the onSelect function within the onClickOption function
+// to ensure that the state is always up to date as changes are made to the selected options.
+
 const MultiChoiceQuestion: React.FC<Props> = ({ title, subtitle, options, onSelect }): ReactElement => {
   const [selectedOptions, setSelectedOptions] = useState<string[]>([])
 

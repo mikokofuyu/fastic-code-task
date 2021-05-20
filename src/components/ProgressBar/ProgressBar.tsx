@@ -5,6 +5,10 @@ interface Props {
   currentStep: number
 }
 
+// Takes in an array of questions - based on the length of the array it renders how many steps there are - making it extensible
+// The `bar` portion of the progress tracking is split into two portions. The first will fill with the `boost2` colour when a
+// question is currently in progress. The second portion will fill once the step has been completed.
+
 const ProgressBar: React.FC<Props> = ({ data, currentStep }): ReactElement => {
   const generateProgressTracking = () => {
     return data.map((item, index: number) => {
